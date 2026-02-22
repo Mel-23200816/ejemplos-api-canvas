@@ -114,6 +114,34 @@ function draw() {
       }
     }
   }
+
+  // =============================
+  // CURVAS CUADRÁTICAS DE BÉZIER
+  // =============================
+  
+  // Guardamos el estado actual del canvas antes de mover el centro
+  ctx.save(); 
+  
+  // Trasladamos el eje (0,0) 200 píxeles hacia abajo para que quede en la segunda "fila"
+  ctx.translate(0, 200); 
+
+  ctx.beginPath();
+  ctx.moveTo(75, 25);
+  ctx.quadraticCurveTo(25, 25, 25, 62.5);
+  ctx.quadraticCurveTo(25, 100, 50, 100);
+  ctx.quadraticCurveTo(50, 120, 30, 125);
+  ctx.quadraticCurveTo(60, 120, 65, 100);
+  ctx.quadraticCurveTo(125, 100, 125, 62.5);
+  ctx.quadraticCurveTo(125, 25, 75, 25);
+  
+  ctx.strokeStyle = "#10b981"; // Color verde Bootstrap
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Restauramos el eje a su posición original por si quieres dibujar más cosas después
+  ctx.restore();
+
+  
 }
 
 function initUI() {
