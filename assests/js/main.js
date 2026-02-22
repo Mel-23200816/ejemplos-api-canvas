@@ -239,7 +239,7 @@ function draw() {
   const circle = new Path2D();
   circle.arc(100, 35, 25, 0, 2 * Math.PI);
 
- // 2. Nuevo Path2D a partir de datos SVG
+  // 2. Nuevo Path2D a partir de datos SVG
   const p = new Path2D("M10 10 h 80 v 80 h -80 Z");
 
   // Dibujamos las formas
@@ -277,3 +277,14 @@ function initUI() {
 }
 
 initUI();
+
+// Una función auxiliar para dibujar un rectángulo con esquinas redondeadas.
+function roundedRect(ctx, x, y, width, height, radius) {
+  ctx.beginPath();
+  ctx.moveTo(x, y + radius);
+  ctx.arcTo(x, y + height, x + radius, y + height, radius);
+  ctx.arcTo(x + width, y + height, x + width, y + height - radius, radius);
+  ctx.arcTo(x + width, y, x + width - radius, y, radius);
+  ctx.arcTo(x, y, x, y + radius, radius);
+  ctx.stroke();
+}
